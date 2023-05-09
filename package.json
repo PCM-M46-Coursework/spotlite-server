@@ -1,0 +1,28 @@
+{
+  "name": "spotlite-server",
+  "version": "1.0.0",
+  "description": "Final Project for Master: Software Developer course, by CodeNation.",
+  "main": "src/server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PCM-M46-Coursework/spotlite-server.git"
+  },
+  "keywords": [
+    "codenation",
+    "mern",
+    "spotify",
+    "coursework"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/PCM-M46-Coursework/spotlite-server/issues"
+  },
+  "homepage": "https://github.com/PCM-M46-Coursework/spotlite-server#readme"
+}
