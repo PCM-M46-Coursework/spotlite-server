@@ -1,11 +1,11 @@
-# Week 11/12 - Full Stack MERN Web Application
+# Week 11/12 - SpotLite - Full Stack MERN Web Application
 
 **Authors:**
  - Andy Harper
  - Elizabeth Nugent
  - Miguel Acevedo
  - Peter C. Matthews
- - Ramon Merrel
+ - Ramon Merrell
 
 This repository contains our coursework submission for Weeks 11, and 12 of the [Master Coding](https://wearecodenation.com/2022/04/25/master-coding/) course at *CodeNation*.
 
