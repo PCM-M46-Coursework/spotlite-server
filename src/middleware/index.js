@@ -1,6 +1,7 @@
 module.exports = {
+	changePassword: require("./changePassword"),
 	comparePassword: require("./comparePassword"),
-	generateToken: require("./generateToken"),
 	hashPassword: require("./hashPassword"),
+	generateToken: require("./generateToken"),
 	verifyToken: require("./verifyToken"),
 };
