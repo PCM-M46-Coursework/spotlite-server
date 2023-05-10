@@ -20,6 +20,7 @@ userRouter.patch(
 	middleware.verifyToken,
 	controllers.dynamicUpdate,
 );
+
 userRouter.patch(
 	"/users/change-password",
 	middleware.verifyToken,
@@ -40,7 +41,7 @@ userRouter.get(
 );
 
 userRouter.delete(
-	"/users/delete/:id",
+	"/users/delete",
 	middleware.verifyToken,
 	controllers.deleteUser,
 );
