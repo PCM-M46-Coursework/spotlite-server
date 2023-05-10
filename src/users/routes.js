@@ -42,7 +42,7 @@ userRouter.get(
 userRouter.delete(
 	"/users/delete/:id",
 	middleware.verifyToken,
-	controllers.delete,
+	controllers.deleteUser,
 );
 
 module.exports = userRouter;
