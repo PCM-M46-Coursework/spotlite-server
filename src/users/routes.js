@@ -6,14 +6,12 @@ const middleware = require("../middleware");
 userRouter.post(
 	"/users/login",
 	middleware.comparePassword,
-	middleware.generateToken,
 	controllers.login,
 );
 
 userRouter.post(
 	"/users/register",
 	middleware.hashPassword,
-	middleware.generateToken,
 	controllers.register,
 );
 
@@ -26,7 +24,6 @@ userRouter.patch(
 	"/users/change-password",
 	middleware.verifyToken,
 	middleware.changePassword,
-	middleware.generateToken,
 	controllers.dynamicUpdate,
 );
 
