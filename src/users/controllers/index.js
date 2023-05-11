@@ -1,7 +1,7 @@
 module.exports = {
-	register: require("register"),
-	login: require("login"),
-	getAllUsers: require("getAllUsers"),
-	dynamicUpdate: require("dynamicUpdate"),
-	delete: require("delete"),
+	register: require("./register"),
+	login: require("./login"),
+	getAllUsers: require("./getAllUsers"),
+	dynamicUpdate: require("./dynamicUpdate"),
+	deleteUser: require("./delete"),
 };
