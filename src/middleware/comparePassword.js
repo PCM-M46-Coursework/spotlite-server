@@ -7,7 +7,7 @@ const comparePassword = async (req, res, next) => {
     try {
         req.user = await User.findOne({where: {username:req.body.username}});
 
-        if (req.user === null) {
+        if (req.user == null) {
             throw new Error ("password or username doesn't match")
         }
             const comparePassword = await bcrypt.compare(req.body.password, req.user.password)

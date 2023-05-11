@@ -3,5 +3,5 @@ module.exports = {
 	login: require("./login"),
 	getAllUsers: require("./getAllUsers"),
 	dynamicUpdate: require("./dynamicUpdate"),
-	deleteUser: require("./delete"),
+	deleteUser: require("./deleteUser"),
 };
