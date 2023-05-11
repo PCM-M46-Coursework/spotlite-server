@@ -23,6 +23,7 @@ userRouter.patch(
 
 userRouter.patch(
 	"/users/change-password",
+	middleware.comparePassword,
 	middleware.verifyToken,
 	middleware.changePassword,
 	controllers.dynamicUpdate,

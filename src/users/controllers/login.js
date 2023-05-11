@@ -1,4 +1,4 @@
-const User = require("./model");
+const User = require("../model");
 const jwt = require("jsonwebtoken");
 
 const login = async (req, res) => {
@@ -14,7 +14,7 @@ const login = async (req, res) => {
             return
         };
         
-        const token = await jwt.sign({id: req.user.id}, process.env.SECRET);
+        const token = await jwt.sign({id: req.user.id}, process.env.SECRET_KEY);
         res.status(200).json({
             message: "success",
             user: {

@@ -2,6 +2,9 @@ const User = require("../model");
 
 const dynamicUpdate = async (req, res) => {
     try {
+      if (req.authUser.username !== req.body.username) {
+        throw Error ("Cannot update other users")
+      }
       const dynamicUpdate = await User.update(
         { [req.body.key]: req.body.value },
         { where: { username: req.body.username } }

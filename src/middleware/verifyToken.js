@@ -8,7 +8,7 @@ const verifyToken = async (req, res, next) => {
             throw new Error("No header or token passed in request")
         }
         const token = req.header("Authorization").replace("Bearer ", "");
-        const decodedToken = await jwt.verify(token, process.env.SECRET)
+        const decodedToken = await jwt.verify(token, process.env.SECRET_KEY)
 
         const user = await User.findOne({ where: {id: decodedToken.id}});
         if(!user){
