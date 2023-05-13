@@ -1,25 +1,22 @@
 require("dotenv").config();
 const express = require("express");
-
-const port = process.env.PORT || 5001;
-
+const cors = require("cors");
 const userRouter = require("./users/routes");
 const spotifyRouter = require("./spotify/routes.js");
 const User = require("./users/model");
-const cors = require("cors");
-
-const app = express();
-app.use(express.json());
-app.use(cors());
+const port = process.env.PORT || 5001;
 
 const syncTables = () => {
 	User.sync();
 };
 
-app.use(userRouter);
-app.use(spotifyRouter);
+const app = express()
+	.use(express.json())
+	.use(cors())
+	.use(userRouter)
+	.use(spotifyRouter);
 
-app.get("/health", (req, res) => {
+app.get("/health", (_, res) => {
 	res.status(200).json({ message: "API is online" });
 });
 
