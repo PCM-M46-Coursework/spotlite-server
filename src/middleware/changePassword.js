@@ -25,8 +25,12 @@ module.exports = async function (req, res, next) {
 			});
 
 		// 3. Overwrite the body to contain just the new password hash as "password".
-		console.log(newHash)
-		req.body = { username: req.body.username, key: "password", value: newHash };
+		console.log(newHash);
+		req.body = {
+			username: req.body.username,
+			key: "password",
+			value: newHash,
+		};
 
 		// 4. Pass the new request body onto the PATCH controller.
 		next();
