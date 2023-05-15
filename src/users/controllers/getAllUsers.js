@@ -7,7 +7,7 @@ const getAllUsers = async (req, res) => {
 		res.status(201).json({
 			message: "success",
 			users: users.map(u => {
-				return { username: u.username };
+				return { username: u.username, email: u.email };
 			}),
 		});
 	} catch (error) {
