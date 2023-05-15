@@ -12,7 +12,7 @@ module.exports = async function (req, res, next) {
 
 	try {
 		// 1. Hash the new password.
-		const newHash = bcrypt.hash(
+		const newHash = await bcrypt.hash(
 			req.body.newPassword,
 			parseInt(process.env.SALT_ROUNDS),
 		);
@@ -25,7 +25,12 @@ module.exports = async function (req, res, next) {
 			});
 
 		// 3. Overwrite the body to contain just the new password hash as "password".
-		req.body = { password: newHash };
+		console.log(newHash);
+		req.body = {
+			username: req.body.username,
+			key: "password",
+			value: newHash,
+		};
 
 		// 4. Pass the new request body onto the PATCH controller.
 		next();
