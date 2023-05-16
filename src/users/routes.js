@@ -50,7 +50,7 @@ userRouter.delete(
 
 userRouter.post(
 	"/users/biography",
-	// middleware.verifyToken,
+	middleware.verifyToken,
 	controllers.biography,
 );
 
