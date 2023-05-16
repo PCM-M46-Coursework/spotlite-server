@@ -12,6 +12,7 @@ userRouter.post(
 userRouter.post(
 	"/users/register",
 	middleware.hashPassword,
+	middleware.validateUser,
 	controllers.register,
 );
 
@@ -49,7 +50,7 @@ userRouter.delete(
 
 userRouter.post(
 	"/users/biography",
-	// middleware.verifyToken,
+	middleware.verifyToken,
 	controllers.biography,
 );
 
