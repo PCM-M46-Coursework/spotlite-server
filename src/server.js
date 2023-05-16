@@ -7,7 +7,7 @@ const User = require("./users/model");
 const port = process.env.PORT || 5001;
 
 const syncTables = () => {
-	User.sync();
+	User.sync( {alter: true} );
 };
 
 const app = express()

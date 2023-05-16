@@ -48,4 +48,10 @@ userRouter.delete(
 	controllers.deleteUser,
 );
 
+userRouter.post(
+	"/users/biography",
+	// middleware.verifyToken,
+	controllers.biography,
+);
+
 module.exports = userRouter;

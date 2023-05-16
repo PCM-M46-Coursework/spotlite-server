@@ -16,6 +16,10 @@ const attributes = {
 		type: DataTypes.STRING,
 		allowNull: false,
 	},
+	biography: {
+		type: DataTypes.STRING,
+		allowNull: true,
+	},
 };
 
 const User = connection.define("User", attributes);
