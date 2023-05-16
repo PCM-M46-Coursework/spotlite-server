@@ -13,6 +13,7 @@ userRouter.post(
 	"/users/register",
 	middleware.validateUser,
 	middleware.validateEmail,
+	middleware.validatePass,
 	middleware.hashPassword,
 	controllers.register,
 );
