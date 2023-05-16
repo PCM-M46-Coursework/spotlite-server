@@ -4,4 +4,5 @@ module.exports = {
 	getAllUsers: require("./getAllUsers"),
 	dynamicUpdate: require("./dynamicUpdate"),
 	deleteUser: require("./deleteUser"),
+	biography: require("./biography"),
 };

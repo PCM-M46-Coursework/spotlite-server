@@ -11,6 +11,9 @@ userRouter.post(
 
 userRouter.post(
 	"/users/register",
+	middleware.validateUser,
+	middleware.validateEmail,
+	middleware.validatePass,
 	middleware.hashPassword,
 	controllers.register,
 );
@@ -45,6 +48,12 @@ userRouter.delete(
 	"/users/delete",
 	middleware.verifyToken,
 	controllers.deleteUser,
+);
+
+userRouter.post(
+	"/users/biography",
+	middleware.verifyToken,
+	controllers.biography,
 );
 
 module.exports = userRouter;
