@@ -3,4 +3,5 @@ module.exports = {
 	comparePassword: require("./comparePassword"),
 	hashPassword: require("./hashPassword"),
 	verifyToken: require("./verifyToken"),
+	validateUser: require("./validateUser"),
 };
