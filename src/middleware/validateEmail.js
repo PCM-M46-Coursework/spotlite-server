@@ -17,7 +17,7 @@ const validateEmail = async (req, res, next) => {
         errors.push('Email cannot contain spaces.');
     }
   
-    if (!email || !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+    if (!email || !/^[a-zA-Z0-9]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
       errors.push('Email contains invalid characters.');
     }
 
@@ -28,7 +28,7 @@ const validateEmail = async (req, res, next) => {
     // Database check for uniqueness
     const existingEmail = await User.findOne({ where: { email } });
     if (existingEmail) {
-      errors.push('Email is already taken.');
+      errors.push('Email provided is already registered.');
     }
 
     // Add up errors and display them
