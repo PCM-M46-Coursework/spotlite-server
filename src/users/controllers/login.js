@@ -3,26 +3,27 @@ const jwt = require("jsonwebtoken");
 const login = async (req, res) => {
 	try {
 		if (req.authUser) {
-			console.log(req.authUser)
+			console.log(req.authUser);
 			res.status(200).json({
 				message: "success",
 				user: {
 					username: req.authUser.username,
 					email: req.authUser.email,
 					biography: req.authUser.biography,
+					profilePic: req.authUser.profilePic?.toString() ?? null,
 					token: req.authUser.token,
 				},
 			});
 			return;
 		}
 
-		console.log(req.user)
 		const token = jwt.sign({ id: req.user.id }, process.env.SECRET_KEY);
 		res.status(200).json({
 			message: "success",
 			user: {
-				username: req.body.username,
-				email: req.body.email,
+				username: req.user.username,
+				email: req.user.email,
+				profilePic: req.user.profilePic?.toString() ?? null,
 				biography: req.user.biography,
 				token: token,
 			},
