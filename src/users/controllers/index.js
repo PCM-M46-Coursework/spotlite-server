@@ -5,4 +5,5 @@ module.exports = {
 	dynamicUpdate: require("./dynamicUpdate"),
 	deleteUser: require("./deleteUser"),
 	biography: require("./biography"),
+	uploadProfilePic: require("./uploadProfilePic"),
 };

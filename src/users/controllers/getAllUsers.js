@@ -7,7 +7,12 @@ const getAllUsers = async (req, res) => {
 		res.status(201).json({
 			message: "success",
 			users: users.map(u => {
-				return { username: u.username, email: u.email };
+				return {
+					username: u.username,
+					email: u.email,
+					profilePic: u.profilePic?.toString() ?? null,
+					biography: u.biography,
+				};
 			}),
 		});
 	} catch (error) {
