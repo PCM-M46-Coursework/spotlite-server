@@ -6,4 +6,6 @@ module.exports = {
 	deleteUser: require("./deleteUser"),
 	biography: require("./biography"),
 	uploadProfilePic: require("./uploadProfilePic"),
+	removeFavouriteTrack: require("./removeFavouriteTrack"),
+	addFavouriteTrack: require("./addFavouriteTrack"),
 };
