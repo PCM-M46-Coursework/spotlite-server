@@ -9,6 +9,7 @@ function createReturnObject(user) {
 			biography: user.biography,
 			profilePic: user.profilePic?.toString() ?? null,
 			token: user.token,
+			userrole: user.userrole,
 			favouriteTracks: user.FavouriteTracks.map(t => {
 				return { uri: t.uri, albumUrl: t.albumUrl, title: t.title, artist: t.artist };
 			}),
