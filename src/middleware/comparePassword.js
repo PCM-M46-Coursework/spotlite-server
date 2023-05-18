@@ -1,3 +1,4 @@
+const FavouriteTrack = require("../users/FavouriteTrack.model");
 const User = require("../users/model");
 
 const bcrypt = require("bcrypt");
@@ -6,15 +7,13 @@ const comparePassword = async (req, res, next) => {
 	try {
 		req.user = await User.findOne({
 			where: { username: req.body.username },
+			include: [FavouriteTrack],
 		});
 
 		if (req.user == null) {
 			throw new Error("password or username doesn't match");
 		}
-		const comparePassword = await bcrypt.compare(
-			req.body.password,
-			req.user.password,
-		);
+		const comparePassword = await bcrypt.compare(req.body.password, req.user.password);
 
 		if (!comparePassword) {
 			throw new Error("password or username doesn't match");

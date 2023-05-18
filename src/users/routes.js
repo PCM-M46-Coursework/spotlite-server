@@ -65,4 +65,16 @@ userRouter.patch(
 	controllers.uploadProfilePic,
 );
 
+userRouter.post(
+	"/users/remove-favourite-track",
+	middleware.verifyToken,
+	controllers.removeFavouriteTrack,
+);
+
+userRouter.post(
+	"/users/add-favourite-track",
+	middleware.verifyToken,
+	controllers.addFavouriteTrack,
+);
+
 module.exports = userRouter;
