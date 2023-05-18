@@ -1,11 +1,11 @@
-# Week 11/12 - Full Stack MERN Web Application
+# Week 11/12 - SpotLite - Full Stack MERN Web Application
 
 **Authors:**
  - Andy Harper
- - Elizabeth Nugent
+ - Beth Nugent
  - Miguel Acevedo
  - Peter C. Matthews
- - Ramon Merrel
+ - Ramon Merrell
 
 This repository contains our coursework submission for Weeks 11, and 12 of the [Master Coding](https://wearecodenation.com/2022/04/25/master-coding/) course at *CodeNation*.
 
@@ -30,27 +30,27 @@ MERN stands for MongoDB, Express, React, Node, after the four key technologies t
  
  Your front end must be built with React and have the following components:
  
- - [ ] A login and sign-up page.
- - [ ] A manual log out button. That once pressed should display or redirect back to the login page / component
- - [ ] Once logged in have a component or page that displays dynamic information about that user, for example their username or email.
- - [ ] Once logged in successfully display a response from a free API for example the IMDb API – (Only show this if a user has logged in correctly).
- - [ ] A component or page that displays all the registered users on your app.
- - [ ] A component or page that allows a user to update their username, password and email.
- - [ ] A button so a user can delete their account.
- - [ ] Nicely styled and have some thought to styling and UX/UI design.
+ - [x] A login and sign-up page.
+ - [x] A manual log out button. That once pressed should display or redirect back to the login page / component
+ - [x] Once logged in have a component or page that displays dynamic information about that user, for example their username or email.
+ - [x] Once logged in successfully display a response from a free API for example the IMDb API – (Only show this if a user has logged in correctly).
+ - [x] A component or page that displays all the registered users on your app.
+ - [x] A component or page that allows a user to update their username, password and email.
+ - [x] A button so a user can delete their account.
+ - [x] Nicely styled and have some thought to styling and UX/UI design.
 
 **Back End**
 
 Your REST API must be built using Node, Express and have a database layer with routes, middleware and controllers to handle all the CRUD operations.
 
- - [ ] Login – use password hashing and generate JWT tokens where appropriate.
- - [ ] Sign Up – use password hashing and generate JWT tokens where appropriate.
- - [ ] Update user information – use password hashing and generate JWT tokens where
+ - [x] Login – use password hashing and generate JWT tokens where appropriate.
+ - [x] Sign Up – use password hashing and generate JWT tokens where appropriate.
+ - [x] Update user information – use password hashing and generate JWT tokens where
 appropriate.
- - [ ] List users – use password hashing and generate JWT tokens where appropriate.
- - [ ] Delete a user and generate JWT tokens where appropriate.
+ - [x] List users – use password hashing and generate JWT tokens where appropriate.
+ - [x] Delete a user and generate JWT tokens where appropriate.
 
 **Stretch Goals**
- - [ ] Project all your API routes using JWT Tokens.
- - [ ] Your application must also be hosted on Netlify and Render (or similar).
- - [ ] Persistent login using JWT tokens.
+ - [x] Project all your API routes using JWT Tokens.
+ - [x] Your application must also be hosted on Netlify and Railway.
+ - [x] Persistent login using JWT tokens.
