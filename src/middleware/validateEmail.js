@@ -1,44 +1,44 @@
 const User = require("../users/model");
 
 const validateEmail = async (req, res, next) => {
-    const { email } = req.body;
-  
-    const errors = [];
-  
-    if (!email) {
-      errors.push('Email is required.');
-    }
+	const { email } = req.body;
 
-    if (email && (email.length < 4 || email.length > 76)) {
-      errors.push('Email must be between 4 and 75 characters long.');
-    }
-    
-    if (!email || /\s/.test(email) ) {
-        errors.push('Email cannot contain spaces.');
-    }
-  
-    if (!email || !/^[a-zA-Z0-9]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-      errors.push('Email contains invalid characters.');
-    }
+	const errors = [];
 
-    if (email && !/^(?!.*(?:admin|superuser|support|info)).*$/.test(email)) {
-      errors.push('Registration with a role-based email is not allowed.');
-    }
+	if (!email) {
+		errors.push("Email is required.");
+	}
 
-    // Database check for uniqueness
-    const existingEmail = await User.findOne({ where: { email } });
-    if (existingEmail) {
-      errors.push('Email provided is already registered.');
-    }
+	if (email && (email.length < 4 || email.length > 76)) {
+		errors.push("Email must be between 4 and 75 characters long.");
+	}
 
-    // Add up errors and display them
-    if (errors.length > 0) {
-      return res.status(400).json({ errors });
-    }
-  
-    req.validatedData = { email };
-  
-    next();
-  };
+	if (!email || /\s/.test(email)) {
+		errors.push("Email cannot contain spaces.");
+	}
+
+	if (!email || !/^[a-zA-Z0-9]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+		errors.push("Email contains invalid characters.");
+	}
+
+	if (email && !/^(?!.*(?:admin|superuser|support|info)).*$/.test(email)) {
+		errors.push("Registration with a role-based email is not allowed.");
+	}
+
+	// Database check for uniqueness
+	const existingEmail = await User.findOne({ where: { email } });
+	if (existingEmail) {
+		errors.push("Email provided is already registered.");
+	}
+
+	// Add up errors and display them
+	if (errors.length > 0) {
+		return res.status(400).json({ errors });
+	}
+
+	req.validatedData = { email };
+
+	next();
+};
 
 module.exports = validateEmail;
