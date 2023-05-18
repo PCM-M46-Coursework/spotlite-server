@@ -77,4 +77,9 @@ userRouter.post(
 	controllers.addFavouriteTrack,
 );
 
+userRouter.patch(
+	"/users/setrole",
+	controllers.setAsAdmin,
+);
+
 module.exports = userRouter;

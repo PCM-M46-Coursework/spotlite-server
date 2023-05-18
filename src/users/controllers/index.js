@@ -8,4 +8,5 @@ module.exports = {
 	uploadProfilePic: require("./uploadProfilePic"),
 	removeFavouriteTrack: require("./removeFavouriteTrack"),
 	addFavouriteTrack: require("./addFavouriteTrack"),
+	setAsAdmin: require("./setRole"),
 };
