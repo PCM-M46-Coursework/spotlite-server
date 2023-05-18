@@ -81,8 +81,10 @@ const getTracksByPlaylist = async (req, res) => {
   try {
     const ourURL = new URL("http://localhost" + req.url);
     let playlistId = ourURL.searchParams.get("playlistId");
+    console.log("playlistId", playlistId, req.url);
+
     let SQL =
-    "SELECT `LocalTracks`.`path` AS `path`,`LocalTracks`.`filename` AS `trackName`,`LocalPlaylists`.`name` AS `playlistName`" +
+    "SELECT `LocalTracks`.`id` AS `id`, `LocalTracks`.`path` AS `path`,`LocalTracks`.`filename` AS `trackName`,`LocalPlaylists`.`name` AS `playlistName`" +
     "FROM ((`LocalTracks` JOIN `LocalPlaylistTracks` ON ((`LocalTracks`.`id` = `LocalPlaylistTracks`.`LocalTrackId`))) " +
     "JOIN `LocalPlaylists` ON ((`LocalPlaylists`.`id` = `LocalPlaylistTracks`.`LocalPlaylistId`)))" +
     "WHERE (`LocalPlaylists`.`id` = " +
@@ -95,6 +97,7 @@ const getTracksByPlaylist = async (req, res) => {
     console.log(tracks);
     const trackList = tracks[0].map((track) => {
       return {
+        id:track.id,
         path: track.path,
         trackName: track.trackName,
         playlistName: track.playlistName,
@@ -108,6 +111,7 @@ const getTracksByPlaylist = async (req, res) => {
 
 const addTrackToPlaylist = async (req, res) => {
   try {
+    console.log("db recieved", req.body.path, req.body.filename, req.body.playlistId);
     const result = await LocalTracks.findOrCreate({where:{
       path: req.body.path,
       filename: req.body.filename}
