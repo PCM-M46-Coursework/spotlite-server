@@ -1,32 +1,31 @@
 const jwt = require("jsonwebtoken");
 
+function createReturnObject(user) {
+	return {
+		message: "success",
+		user: {
+			username: user.username,
+			email: user.email,
+			biography: user.biography,
+			profilePic: user.profilePic?.toString() ?? null,
+			token: user.token,
+			userrole: user.userrole,
+			favouriteTracks: user.FavouriteTracks.map(t => {
+				return { uri: t.uri, albumUrl: t.albumUrl, title: t.title, artist: t.artist };
+			}),
+		},
+	};
+}
+
 const login = async (req, res) => {
 	try {
 		if (req.authUser) {
-			console.log(req.authUser)
-			res.status(200).json({
-				message: "success",
-				user: {
-					username: req.authUser.username,
-					email: req.authUser.email,
-					biography: req.authUser.biography,
-					token: req.authUser.token,
-				},
-			});
+			console.log(req.authUser);
+			res.status(200).json(createReturnObject(req.authUser));
 			return;
 		}
-
-		console.log(req.user)
-		const token = jwt.sign({ id: req.user.id }, process.env.SECRET_KEY);
-		res.status(200).json({
-			message: "success",
-			user: {
-				username: req.body.username,
-				email: req.body.email,
-				biography: req.user.biography,
-				token: token,
-			},
-		});
+		req.user.token = jwt.sign({ id: req.user.id }, process.env.SECRET_KEY);
+		res.status(200).json(createReturnObject(req.user));
 	} catch (error) {
 		res.status(501).json({ errorMessage: error.message, error: error });
 	}

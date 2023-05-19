@@ -2,6 +2,8 @@ const { Router } = require("express");
 const userRouter = Router();
 const controllers = require("./controllers");
 const middleware = require("../middleware");
+const multer = require('multer');
+const upload = multer();
 
 userRouter.post(
 	"/users/login",
@@ -54,6 +56,30 @@ userRouter.post(
 	"/users/biography",
 	middleware.verifyToken,
 	controllers.biography,
+);
+
+userRouter.patch(
+	"/users/upload-profile-pic",
+	middleware.verifyToken,
+    upload.single('image'),
+	controllers.uploadProfilePic,
+);
+
+userRouter.post(
+	"/users/remove-favourite-track",
+	middleware.verifyToken,
+	controllers.removeFavouriteTrack,
+);
+
+userRouter.post(
+	"/users/add-favourite-track",
+	middleware.verifyToken,
+	controllers.addFavouriteTrack,
+);
+
+userRouter.patch(
+	"/users/setrole",
+	controllers.setAsAdmin,
 );
 
 module.exports = userRouter;

@@ -20,6 +20,15 @@ const attributes = {
 		type: DataTypes.STRING,
 		allowNull: true,
 	},
+	profilePic: {
+		type: DataTypes.BLOB("long"),
+		allowNull: true,
+	},
+	userrole: {
+		type: DataTypes.ENUM('admin', 'user'),
+  		allowNull: false,
+  		defaultValue: 'user',
+	},
 };
 
 const User = connection.define("User", attributes);
